@@ -3,7 +3,7 @@ const presentes = document.querySelectorAll(".draggable");
 const mensagem = document.getElementById("mensagem");
 
 // Ordem correta dos presentes (IDs)
-const ordemCorreta = ["presente-amarelo", "presente-azul", "presente-verde", "presente-vermelho"];
+const ordemCorreta = ["presente-azul", "presente-vermelho", "presente-amarelo", "presente-verde"];
 
 // Variáveis para touchscreen
 let draggedElement = null;

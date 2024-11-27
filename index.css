@@ -81,6 +81,12 @@ body {
     }
 }
 
+.aviso {
+    font-size: 50%;
+    padding: 10px;
+    
+}
+
 /* Responsividade para smartphones */
 @media (max-width: 480px) {
     .draggable {
