@@ -6,7 +6,7 @@
 
 body {
     background-color: #003049;
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -14,75 +14,42 @@ body {
     justify-content: center;
 }
 
-.botão h1 {
-    text-decoration: none;
-    background-color: #ffb703;
-    color: black;
-    font-size: 2.5rem;
-    padding: 10px 20px;
-    border-radius: 10px;
-    transition: 300ms ease-in-out;
-    text-align: center;
-}
-
-.botão h1:hover {
-    box-shadow: #415a77 0px 4px 12px;
-    transform: scale(1.1);
-}
-
 .arvore {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
     margin: 20px 0;
-    position: relative;
 }
 
 .presentes {
     display: flex;
-    flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .draggable {
     cursor: grab;
-    max-width: 100px;
+    width: 100px;
 }
 
-#dropzone {
-    position: relative;
-    max-width: 100%;
-    height: auto;
+.zonas {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-    .botão h1 {
-        font-size: 1.8rem;
-        padding: 8px 16px;
-    }
-
-    .draggable {
-        max-width: 80px;
-    }
-
-    #dropzone {
-        max-width: 80%;
-    }
+.zona {
+    width: 150px;
+    height: 150px;
+    border: 2px dashed #ffb703;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
-@media (max-width: 480px) {
-    .botão h1 {
-        font-size: 1.5rem;
-        padding: 6px 12px;
-    }
-
-    .draggable {
-        max-width: 60px;
-    }
-
-    #dropzone {
-        max-width: 70%;
-    }
+.zona:hover {
+    background-color: rgba(255, 183, 3, 0.2);
 }

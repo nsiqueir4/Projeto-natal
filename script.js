@@ -1,15 +1,17 @@
 // Seleciona os elementos
 const draggables = document.querySelectorAll('.draggable');
-const dropzone = document.getElementById('dropzone');
+const zonas = document.querySelectorAll('.zona');
 
 // Adiciona eventos de arrastar aos presentes
 draggables.forEach(item => {
     item.addEventListener('dragstart', dragStart);
 });
 
-// Adiciona eventos à zona de drop (a árvore)
-dropzone.addEventListener('dragover', dragOver);
-dropzone.addEventListener('drop', drop);
+// Adiciona eventos às zonas de drop
+zonas.forEach(zona => {
+    zona.addEventListener('dragover', dragOver);
+    zona.addEventListener('drop', drop);
+});
 
 function dragStart(event) {
     event.dataTransfer.setData('text', event.target.src); // Armazena a referência da imagem
@@ -25,16 +27,9 @@ function drop(event) {
     const imageSrc = event.dataTransfer.getData('text'); // Obtém a referência da imagem
     const newImage = document.createElement('img'); // Cria um novo elemento de imagem
     newImage.src = imageSrc;
-    newImage.style.width = '80px'; // Ajusta o tamanho do presente (ajustável)
-    newImage.style.position = 'absolute'; // Permite posicionar na árvore
+    newImage.style.width = '100px'; // Ajusta o tamanho do presente
 
-    // Calcula posição para alinhar os presentes na base da árvore
-    const dropzoneRect = dropzone.getBoundingClientRect(); // Pega a posição da árvore
-    const offsetX = event.clientX - dropzoneRect.left; // Posição do mouse dentro da árvore
-    const baseY = dropzoneRect.height - 80; // Define a base da árvore (ajustável)
-
-    newImage.style.left = `${offsetX - 40}px`; // Ajusta para centralizar o presente
-    newImage.style.top = `${baseY}px`; // Posiciona na base da árvore
-
-    dropzone.appendChild(newImage); // Adiciona o presente à árvore
+    // Remove qualquer presente existente na zona antes de adicionar o novo
+    event.target.innerHTML = '';
+    event.target.appendChild(newImage); // Adiciona o presente na zona
 }
