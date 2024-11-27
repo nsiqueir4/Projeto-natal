@@ -12,10 +12,13 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
 .arvore {
     margin: 20px 0;
+    max-width: 100%;
+    text-align: center;
 }
 
 .presentes {
@@ -23,11 +26,17 @@ body {
     gap: 10px;
     justify-content: center;
     margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
 .draggable {
     cursor: grab;
     width: 100px;
+    transition: transform 0.2s;
+}
+
+.draggable:hover {
+    transform: scale(1.1);
 }
 
 .zonas {
@@ -35,6 +44,7 @@ body {
     gap: 20px;
     justify-content: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .zona {
@@ -48,8 +58,46 @@ body {
     color: white;
     font-weight: bold;
     font-size: 1.2rem;
+    text-align: center;
+    transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
 }
 
 .zona:hover {
     background-color: rgba(255, 183, 3, 0.2);
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    .draggable {
+        width: 80px;
+    }
+
+    .zona {
+        width: 120px;
+        height: 120px;
+        font-size: 1rem;
+    }
+}
+
+/* Responsividade para smartphones */
+@media (max-width: 480px) {
+    .draggable {
+        width: 60px;
+    }
+
+    .zona {
+        width: 100px;
+        height: 100px;
+        font-size: 0.8rem;
+    }
+
+    .arvore img {
+        max-width: 80%;
+    }
+
+    .zonas {
+        gap: 10px;
+    }
 }
